@@ -36,6 +36,16 @@ abstract class ModelRepository implements RepositoryContract
         return $this->model->find($id);
     }
 
+    public function firstBy(string $column, string $value): Model|null
+    {
+        return $this->model->where($column, $value)->first();
+    }
+
+    public function findBy(string $column, string $value): Collection|null
+    {
+        return $this->model->where($column, $value)->get();
+    }
+
     public function update(int $id, array $data): bool|null
     {
         return $this->model->find($id)?->update($data);
