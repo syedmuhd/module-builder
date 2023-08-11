@@ -1,0 +1,58 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Services\%ModuleName%;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+use App\Services\ServiceContract;
+use App\Repositories\%ModuleName%\%ModuleName%Repository;
+
+class %ModuleName%Service implements ServiceContract
+{
+
+    public function __construct(public %ModuleName%Repository $%ModuleNameLowerSingular%Repository)
+    {
+    }
+
+    public function getAll(): Collection
+    {
+        return $this->%ModuleNameLowerSingular%Repository->all();
+    }
+
+    public function get(int $id): Model|null
+    {
+        return $this->%ModuleNameLowerSingular%Repository->get($id);
+    }
+
+    public function create(array $data): Model
+    {
+        return $this->%ModuleNameLowerSingular%Repository->create($data);
+    }
+
+    public function update(int $id, array $data): bool|null
+    {
+        return $this->%ModuleNameLowerSingular%Repository->update($id, $data);
+    }
+
+    public function delete(int $id): bool|int
+    {
+        return $this->%ModuleNameLowerSingular%Repository->delete($id);
+    }
+
+    public function deleteMany(array $ids): bool|int
+    {
+        return $this->%ModuleNameLowerSingular%Repository->deleteMany($ids);
+    }
+
+    public function restore(int $id): bool|int
+    {
+        return $this->%ModuleNameLowerSingular%Repository->restore($id);
+    }
+
+    public function restoreMany(array $ids): bool|int
+    {
+        return $this->%ModuleNameLowerSingular%Repository->restoreMany($ids);
+    }
+}

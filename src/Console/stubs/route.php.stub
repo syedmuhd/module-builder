@@ -1,0 +1,48 @@
+<?php
+
+declare(strict_types=1);
+
+use App\Http\Controllers\%ModuleName%\%ModuleName%Controller;
+use Illuminate\Support\Facades\Route;
+
+Route::controller(%ModuleName%Controller::class)->group(function () {
+    /**
+     * Get all %ModuleNameLowerPlural%
+     */
+    Route::get('%ModuleNameLowerPlural%', 'all');
+
+    /**
+     * Get a specific order
+     */
+    Route::get('%ModuleNameLowerPlural%/{id}', 'get');
+
+    /**
+     * Create a new order
+     */
+    Route::post('%ModuleNameLowerPlural%', 'create');
+
+    /**
+     * Update an existing order
+     */
+    Route::patch('%ModuleNameLowerPlural%/{id}', 'update');
+
+    /**
+     * Delete an existing order
+     */
+    Route::delete('%ModuleNameLowerPlural%/{id}', 'delete');
+
+    /**
+     * Delete many %ModuleNameLowerPlural%
+     */
+    Route::delete('%ModuleNameLowerPlural%', 'deleteMany');
+
+    /**
+     * Restore a deleted order
+     */
+    Route::post('%ModuleNameLowerPlural%/{id}/restore', 'restore');
+
+    /**
+     * Restore many deleted %ModuleNameLowerPlural%
+     */
+    Route::post('%ModuleNameLowerPlural%/restore', 'restoreMany');
+});

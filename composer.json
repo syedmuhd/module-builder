@@ -1,0 +1,39 @@
+{
+  "name": "syedmuhd/module-builder",
+  "description": "Laravel package for application modules scaffolding.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Syed Muhammad Alyahya",
+      "email": "syedmuhd.dev@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Syedmuhd\\Builder\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Syedmuhd\\Builder\\BuilderServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "require-dev": {
+    "orchestra/testbench": "^8.0",
+    "pestphp/pest": "2.x-dev"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}

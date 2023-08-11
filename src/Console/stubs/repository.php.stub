@@ -1,0 +1,19 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Repositories\%ModuleName%;
+
+use Illuminate\Database\Eloquent\Model;
+use App\Models\%ModuleName%\%ModuleName%;
+use App\Repositories\ModelRepository;
+
+class %ModuleName%Repository extends ModelRepository
+{
+    protected Model $model;
+
+    public function __construct()
+    {
+        $this->model = new %ModuleName%();
+    }
+}

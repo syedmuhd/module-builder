@@ -1,0 +1,94 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Http\Controllers\%ModuleName%;
+
+use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Model;
+
+use App\Services\%ModuleName%\%ModuleName%Service;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\%ModuleName%\%ModuleName%GetRequest;
+use App\Http\Requests\%ModuleName%\%ModuleName%CreateRequest;
+use App\Http\Requests\%ModuleName%\%ModuleName%UpdateRequest;
+use App\Http\Requests\%ModuleName%\%ModuleName%DeleteRequest;
+use App\Http\Requests\%ModuleName%\%ModuleName%DeleteManyRequest;
+use App\Http\Requests\%ModuleName%\%ModuleName%RestoreRequest;
+use App\Http\Requests\%ModuleName%\%ModuleName%RestoreManyRequest;
+
+class %ModuleName%Controller extends Controller
+{
+
+    public function __construct(
+        public %ModuleName%Service $service
+    ) {
+    }
+
+    /**
+     * Get all model resources.
+     */
+    public function all(): Collection
+    {
+        return $this->service->getAll();
+    }
+
+    /**
+     * Get a single model resource.
+     */
+
+    public function get(%ModuleName%GetRequest $request, int $id): Model|null
+    {
+        return $this->service->get($id);
+    }
+
+    /**
+     * Create a new model resource.
+     */
+
+    public function create(%ModuleName%CreateRequest $request): Model
+    {
+        return $this->service->create($request->validated());
+    }
+
+    /**
+     * Update an existing model resource.
+     */
+
+    public function update(int $id, %ModuleName%UpdateRequest $request): bool|null
+    {
+        return $this->service->update($id, $request->validated());
+    }
+
+    /**
+     * Delete an existing model resource.
+     */
+    public function delete(%ModuleName%DeleteRequest $request, int $id): bool|int
+    {
+        return $this->service->delete($id);
+    }
+
+    /**
+     * Delete many existing model resources.
+     */
+    public function deleteMany(%ModuleName%DeleteManyRequest $request): bool|int
+    {
+        return $this->service->deleteMany($request->ids);
+    }
+
+    /**
+     * Restore a deleted model resource.
+     */
+    public function restore(%ModuleName%RestoreRequest $request, int $id): bool|int
+    {
+        return $this->service->restore($id);
+    }
+
+    /**
+     * Restore many deleted model resources.
+     */
+    public function restoreMany(%ModuleName%RestoreManyRequest $request): bool|int
+    {
+        return $this->service->restoreMany($request->ids);
+    }
+}
